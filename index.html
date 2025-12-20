@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cii.tech - Identidade Visual, Impressão 3D e Gráfica</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --azul-marinho: #0a1628;
+            --azul-escuro: #1a2942;
+            --dourado: #d4af37;
+            --dourado-claro: #f4d976;
+            --branco: #ffffff;
+            --cinza-claro: #f5f5f5;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: var(--azul-marinho);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--dourado);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--branco);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--dourado);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--azul-marinho) 0%, var(--azul-escuro) 100%);
+            color: var(--branco);
+            padding: 150px 5% 100px;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--dourado);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: var(--cinza-claro);
+        }
+
+        .cta-button {
+            background: var(--dourado);
+            color: var(--azul-marinho);
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .cta-button:hover {
+            background: var(--dourado-claro);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--azul-marinho);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--dourado);
+            margin: 1rem auto 0;
+            border-radius: 2px;
+        }
+
+        /* Serviços */
+        .servicos {
+            background: var(--cinza-claro);
+        }
+
+        .servicos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .servico-card {
+            background: var(--branco);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            animation: fadeIn 1s ease;
+        }
+
+        .servico-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .servico-icon {
+            font-size: 3rem;
+            color: var(--dourado);
+            margin-bottom: 1rem;
+        }
+
+        .servico-card h3 {
+            color: var(--azul-marinho);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .servico-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Portfólio */
+        .portfolio-category {
+            margin-bottom: 4rem;
+        }
+
+        .category-title {
+            font-size: 1.8rem;
+            color: var(--azul-marinho);
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            border-left: 4px solid var(--dourado);
+        }
+
+        .carousel-container {
+            position: relative;
+            padding: 0 50px;
+        }
+
+        .carousel {
+            display: flex;
+            gap: 2rem;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            padding: 1rem 0;
+        }
+
+        .carousel .portfolio-item {
+            min-width: 300px;
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            height: 300px;
+            background: var(--azul-escuro);
+            transition: transform 0.3s;
+        }
+
+        .carousel .portfolio-item:hover {
+            transform: scale(1.05);
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--dourado);
+            color: var(--azul-marinho);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .carousel-btn:hover {
+            background: var(--dourado-claro);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-btn.prev {
+            left: 0;
+        }
+
+        .carousel-btn.next {
+            right: 0;
+        }
+
+        /* Depoimentos */
+        .depoimentos {
+            background: var(--azul-marinho);
+            color: var(--branco);
+        }
+
+        .depoimentos .section-title {
+            color: var(--branco);
+        }
+
+        .depoimentos .section-title::after {
+            background: var(--dourado);
+        }
+
+        .depoimentos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .depoimento-card {
+            background: var(--azul-escuro);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .depoimento-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .depoimento-aspas {
+            font-size: 4rem;
+            color: var(--dourado);
+            line-height: 1;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        .depoimento-texto {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: var(--cinza-claro);
+        }
+
+        .depoimento-autor {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .depoimento-autor strong {
+            color: var(--dourado);
+            font-size: 1.1rem;
+        }
+
+        .depoimento-autor span {
+            color: var(--cinza-claro);
+            font-size: 0.9rem;
+        }
+
+        /* Contato Atualizado */
+        .contato-center {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contato-info h3 {
+            color: var(--azul-marinho);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contato-info p {
+            color: #666;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .whatsapp-button-large {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: #25D366;
+            color: white;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-button-large:hover {
+            background: #128C7E;
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--azul-marinho);
+            color: var(--branco);
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content p {
+            color: var(--cinza-claro);
+            margin-top: 1rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .carousel-container {
+                padding: 0 40px;
+            }
+
+            .carousel .portfolio-item {
+                min-width: 250px;
+            }
+
+            .carousel-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#" class="logo">cii.tech</a>
+            <ul class="nav-links">
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#portfolio">Portfólio</a></li>
+                <li><a href="#depoimentos">Depoimentos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>cii.tech</h1>
+            <p>Transformando ideias em realidade através de identidade visual, impressão 3D e serviços gráficos de excelência</p>
+            <a href="#contato" class="cta-button">Fale com a gente</a>
+        </div>
+    </section>
+
+    <!-- Serviços -->
+    <section id="servicos" class="servicos">
+        <h2 class="section-title">Nossos Serviços</h2>
+        <div class="servicos-grid">
+            <div class="servico-card">
+                <div class="servico-icon">🎨</div>
+                <h3>Identidade Visual</h3>
+                <p>Criação de logos, manual de marca e toda identidade visual para destacar seu negócio no mercado.</p>
+            </div>
+            <div class="servico-card">
+                <div class="servico-icon">🖨️</div>
+                <h3>Impressão 3D</h3>
+                <p>Prototipagem rápida, peças personalizadas e projetos sob medida com tecnologia de ponta.</p>
+            </div>
+            <div class="servico-card">
+                <div class="servico-icon">📄</div>
+                <h3>Serviços Gráficos</h3>
+                <p>Cartões de visita, banners, folders e todo tipo de material gráfico com qualidade premium.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfólio -->
+    <section id="portfolio">
+        <h2 class="section-title">Portfólio</h2>
+        
+        <!-- Identidade Visual -->
+        <div class="portfolio-category">
+            <h3 class="category-title">🎨 Identidade Visual</h3>
+            <div class="carousel-container">
+                <button class="carousel-btn prev" onclick="moveCarousel('identidade', -1)">‹</button>
+                <div class="carousel" id="carousel-identidade">
+                    <div class="portfolio-item">
+                        <div class="portfolio-overlay">
+                            <h4>Logo Empresa Tech</h4>
+                            <p>Criação completa de marca</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-overlay">
+                            <h4>Manual de Marca</h4>
+                            <p>Guia de aplicação visual</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-overlay">
+                            <h4>Rebranding Corporativo</h4>
+                            <p>Renovação de identidade</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-overlay">
+                            <h4>Logo & Papelaria</h4>
+                            <p>Identidade completa</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-btn next" onclick="moveCarousel('identidade', 1)">›</button>
+            </div>
+        </div>
+
+        <!-- Impressão 3D -->
+        <div class="portfolio-category">
+            <h3 class="category-title">🖨️ Projetos 3D</h3>
+            <div class="carousel-container">
+                <button class="carousel-btn prev" onclick="moveCarousel('impressao3d', -1)">‹</button>
+                <div class="carousel" id="carousel-impressao3d">
+                    <div class="portfolio-item">
+                        <div class="portfolio-overlay">
+                            <h4>Protótipo Funcional</h4>
+                            <p>Peça técnica personalizada</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-overlay">
+                            <h4>Miniatura Arquitetônica</h4>
+                            <p>Maquete em alta precisão</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-overlay">
+                            <h4>Peça Decorativa</h4>
+                            <p>Objeto personalizado</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-overlay">
+                            <h4>Protótipo Industrial</h4>
+                            <p>Validação de projeto</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-btn next" onclick="moveCarousel('impressao3d', 1)">›</button>
+            </div>
+        </div>
+
+        <!-- Projetos MDF -->
+        <div class="portfolio-category">
+            <h3 class="category-title">🪵 Projetos com MDF</h3>
+            <div class="carousel-container">
+                <button class="carousel-btn prev" onclick="moveCarousel('mdf', -1)">‹</button>
+                <div class="carousel" id="carousel-mdf">
+                    <div class="portfolio-item">
+                        <div class="portfolio-overlay">
+                            <h4>Corte Personalizado</h4>
+                            <p>Peça decorativa em MDF</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-overlay">
+                            <h4>Display para Loja</h4>
+                            <p>Expositor customizado</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-overlay">
+                            <h4>Placa Decorativa</h4>
+                            <p>Sinalização personalizada</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-overlay">
+                            <h4>Porta-objetos</h4>
+                            <p>Organizador funcional</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-btn next" onclick="moveCarousel('mdf', 1)">›</button>
+            </div>
+        </div>
+
+        <!-- Impressões Gráficas -->
+        <div class="portfolio-category">
+            <h3 class="category-title">📄 Impressões Gráficas</h3>
+            <div class="carousel-container">
+                <button class="carousel-btn prev" onclick="moveCarousel('grafica', -1)">‹</button>
+                <div class="carousel" id="carousel-grafica">
+                    <div class="portfolio-item">
+                        <div class="portfolio-overlay">
+                            <h4>Cartões de Visita</h4>
+                            <p>Impressão premium</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-overlay">
+                            <h4>Banners e Faixas</h4>
+                            <p>Material promocional</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-overlay">
+                            <h4>Folders Institucionais</h4>
+                            <p>Material corporativo</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-overlay">
+                            <h4>Papelaria Completa</h4>
+                            <p>Timbrados e envelopes</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-btn next" onclick="moveCarousel('grafica', 1)">›</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section id="depoimentos" class="depoimentos">
+        <h2 class="section-title">O que dizem nossos clientes</h2>
+        <div class="depoimentos-grid">
+            <div class="depoimento-card">
+                <div class="depoimento-aspas">"</div>
+                <p class="depoimento-texto">Excelente trabalho! A identidade visual superou todas as expectativas. Profissionalismo e criatividade em cada detalhe.</p>
+                <div class="depoimento-autor">
+                    <strong>João Silva</strong>
+                    <span>CEO - Tech Solutions</span>
+                </div>
+            </div>
+            <div class="depoimento-card">
+                <div class="depoimento-aspas">"</div>
+                <p class="depoimento-texto">A impressão 3D do protótipo foi perfeita. Entrega rápida e qualidade impecável. Recomendo muito!</p>
+                <div class="depoimento-autor">
+                    <strong>Maria Santos</strong>
+                    <span>Arquiteta</span>
+                </div>
+            </div>
+            <div class="depoimento-card">
+                <div class="depoimento-aspas">"</div>
+                <p class="depoimento-texto">Materiais gráficos de altíssima qualidade. A equipe é atenciosa e entende exatamente o que precisamos.</p>
+                <div class="depoimento-autor">
+                    <strong>Carlos Oliveira</strong>
+                    <span>Gerente de Marketing</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="contato">
+        <h2 class="section-title">Entre em Contato</h2>
+        <div class="contato-center">
+            <div class="contato-info">
+                <h3>Vamos conversar sobre seu projeto?</h3>
+                <p>Estamos prontos para transformar suas ideias em realidade. Entre em contato conosco através do WhatsApp e vamos construir algo incrível juntos!</p>
+                
+                <a href="https://wa.me/5581999999999" class="whatsapp-button-large" target="_blank">
+                    💬 Fale conosco no WhatsApp
+                </a>
+
+                <div class="social-links">
+                    <a href="#" class="social-icon" title="Instagram">📷</a>
+                    <a href="#" class="social-icon" title="LinkedIn">💼</a>
+                    <a href="#" class="social-icon" title="Facebook">👥</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <h3 class="logo">cii.tech</h3>
+            <p>&copy; 2024 cii.tech - Todos os direitos reservados</p>
+            <p>Identidade Visual | Impressão 3D | Serviços Gráficos</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll para os links de navegação
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Sistema de Carrossel
+        const carouselPositions = {
+            'identidade': 0,
+            'impressao3d': 0,
+            'mdf': 0,
+            'grafica': 0
+        };
+
+        function moveCarousel(category, direction) {
+            const carousel = document.getElementById('carousel-' + category);
+            const items = carousel.querySelectorAll('.portfolio-item');
+            const itemWidth = items[0].offsetWidth + 32; // 32px é o gap
+            const maxPosition = -(items.length - 3) * itemWidth;
+            
+            carouselPositions[category] += direction * itemWidth;
+            
+            if (carouselPositions[category] > 0) {
+                carouselPositions[category] = 0;
+            } else if (carouselPositions[category] < maxPosition) {
+                carouselPositions[category] = maxPosition;
+            }
+            
+            carousel.style.transform = `translateX(${carouselPositions[category]}px)`;
+        }
+
+        // Animação de entrada dos elementos quando aparecem na viewport
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.servico-card, .depoimento-card, .portfolio-category').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

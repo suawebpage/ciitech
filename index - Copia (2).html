@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cii.tech - Identidade Visual, Impressão 3D e Gráfica</title>
+    <link rel="stylesheet" href="src/css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#" class="logo">cii.tech</a>
+            <ul class="nav-links">
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#portfolio">Portfólio</a></li>
+                <li><a href="#depoimentos">Depoimentos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>cii.tech</h1>
+            <p>Transformando ideias em realidade através de identidade visual, impressão 3D e serviços gráficos de excelência</p>
+            <a href="#contato" class="cta-button">Fale com a gente</a>
+        </div>
+    </section>
+
+    <!-- Serviços -->
+    <section id="servicos" class="servicos">
+        <h2 class="section-title">Nossos Serviços</h2>
+        <div class="servicos-grid">
+            <div class="servico-card">
+                <div class="servico-icon">🎨</div>
+                <h3>Identidade Visual</h3>
+                <p>Criação de logos, manual de marca e toda identidade visual para destacar seu negócio no mercado.</p>
+            </div>
+            <div class="servico-card">
+                <div class="servico-icon">🖨️</div>
+                <h3>Impressão 3D</h3>
+                <p>Prototipagem rápida, peças personalizadas e projetos sob medida com tecnologia de ponta.</p>
+            </div>
+            <div class="servico-card">
+                <div class="servico-icon">📄</div>
+                <h3>Serviços Gráficos</h3>
+                <p>Cartões de visita, banners, folders e todo tipo de material gráfico com qualidade premium.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfólio -->
+    <section id="portfolio">
+        <h2 class="section-title">Portfólio</h2>
+        
+        <!-- Identidade Visual -->
+        <div class="portfolio-category">
+            <h3 class="category-title">🎨 Identidade Visual</h3>
+            <div class="carousel-container">
+                <button class="carousel-btn prev" onclick="moveCarousel('identidade', -1)">‹</button>
+                <div class="carousel" id="carousel-identidade">
+                    <!-- Conteúdo gerado dinamicamente pelo JavaScript -->
+                </div>
+                <button class="carousel-btn next" onclick="moveCarousel('identidade', 1)">›</button>
+            </div>
+        </div>
+
+        <!-- Impressão 3D -->
+        <div class="portfolio-category">
+            <h3 class="category-title">🖨️ Projetos 3D</h3>
+            <div class="carousel-container">
+                <button class="carousel-btn prev" onclick="moveCarousel('impressao3d', -1)">‹</button>
+                <div class="carousel" id="carousel-impressao3d">
+                    <!-- Conteúdo gerado dinamicamente pelo JavaScript -->
+                </div>
+                <button class="carousel-btn next" onclick="moveCarousel('impressao3d', 1)">›</button>
+            </div>
+        </div>
+
+        <!-- Projetos MDF -->
+        <div class="portfolio-category">
+            <h3 class="category-title">🪵 Projetos com MDF</h3>
+            <div class="carousel-container">
+                <button class="carousel-btn prev" onclick="moveCarousel('mdf', -1)">‹</button>
+                <div class="carousel" id="carousel-mdf">
+                    <!-- Conteúdo gerado dinamicamente pelo JavaScript -->
+                </div>
+                <button class="carousel-btn next" onclick="moveCarousel('mdf', 1)">›</button>
+            </div>
+        </div>
+
+        <!-- Impressões Gráficas -->
+        <div class="portfolio-category">
+            <h3 class="category-title">📄 Impressões Gráficas</h3>
+            <div class="carousel-container">
+                <button class="carousel-btn prev" onclick="moveCarousel('grafica', -1)">‹</button>
+                <div class="carousel" id="carousel-grafica">
+                    <!-- Conteúdo gerado dinamicamente pelo JavaScript -->
+                </div>
+                <button class="carousel-btn next" onclick="moveCarousel('grafica', 1)">›</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section id="depoimentos" class="depoimentos">
+        <h2 class="section-title">O que dizem nossos clientes</h2>
+        <div class="depoimentos-grid">
+            <div class="depoimento-card">
+                <div class="depoimento-aspas">"</div>
+                <p class="depoimento-texto">Excelente trabalho! A identidade visual superou todas as expectativas. Profissionalismo e criatividade em cada detalhe.</p>
+                <div class="depoimento-autor">
+                    <strong>João Silva</strong>
+                    <span>CEO - Tech Solutions</span>
+                </div>
+            </div>
+            <div class="depoimento-card">
+                <div class="depoimento-aspas">"</div>
+                <p class="depoimento-texto">A impressão 3D do protótipo foi perfeita. Entrega rápida e qualidade impecável. Recomendo muito!</p>
+                <div class="depoimento-autor">
+                    <strong>Maria Santos</strong>
+                    <span>Arquiteta</span>
+                </div>
+            </div>
+            <div class="depoimento-card">
+                <div class="depoimento-aspas">"</div>
+                <p class="depoimento-texto">Materiais gráficos de altíssima qualidade. A equipe é atenciosa e entende exatamente o que precisamos.</p>
+                <div class="depoimento-autor">
+                    <strong>Carlos Oliveira</strong>
+                    <span>Gerente de Marketing</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="contato">
+        <h2 class="section-title">Entre em Contato</h2>
+        <div class="contato-center">
+            <div class="contato-info">
+                <h3>Vamos conversar sobre seu projeto?</h3>
+                <p>Estamos prontos para transformar suas ideias em realidade. Entre em contato conosco através do WhatsApp e vamos construir algo incrível juntos!</p>
+                
+                <a href="https://wa.me/5581999999999" class="whatsapp-button-large" target="_blank">
+                    💬 Fale conosco no WhatsApp
+                </a>
+
+                <div class="social-links">
+                    <a href="#" class="social-icon" title="Instagram">📷</a>
+                    <a href="#" class="social-icon" title="LinkedIn">💼</a>
+                    <a href="#" class="social-icon" title="Facebook">👥</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <h3 class="logo">cii.tech</h3>
+            <p>&copy; 2024 cii.tech - Todos os direitos reservados</p>
+            <p>Identidade Visual | Impressão 3D | Serviços Gráficos</p>
+        </div>
+    </footer>
+
+    <script src="src/js/script.js"></script>
+</body>
+</html>
