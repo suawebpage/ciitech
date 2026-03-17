@@ -66,13 +66,14 @@ body {
     display: flex;
     list-style: none;
     gap: var(--spacing-md);
+    font-family: var(--main-font);
 }
 
 .nav-link {
     color: var(--text-dark);
     text-decoration: none;
     font-weight: 500;
-    font-size: x-large;
+    font-size: var(--font-md);
     transition: var(--transition);
     position: relative;
 }
@@ -144,6 +145,7 @@ body {
 
 .hero-title {
     font-size: var(--font-xxl);
+    font-family: var(--main-font);
     margin-bottom: var(--spacing-sm);
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
@@ -202,6 +204,7 @@ body {
     z-index: 1;
     max-width: 600px;
     padding: 0 var(--spacing-sm);
+    font-family: var(--main-font);
 }
 
 /* Services Section */
@@ -213,6 +216,7 @@ body {
 .section-title {
     text-align: center;
     font-size: var(--font-xl);
+    font-family: var(--main-font);
     margin-bottom: var(--spacing-lg);
     color: var(--primary-color);
     position: relative;
@@ -267,6 +271,8 @@ body {
 }
 
 .carousel-container {
+    width: 60%;
+    margin: auto;
     position: relative;
     overflow: hidden;
     border-radius: 10px;
@@ -611,6 +617,7 @@ body {
         justify-content: center;
         transition: var(--transition);
         z-index: 999;
+        font-size: x-large;
     }
     
     .nav-menu.active {
@@ -638,6 +645,9 @@ body {
     .collaborator-image {
         width: 150px;
         height: 150px;
+    }
+    .carousel-container {
+        width: 90%;
     }
 }
 

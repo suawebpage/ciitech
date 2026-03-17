@@ -40,4 +40,14 @@
     
     /* Container */
     --container-width: 1200px;
+
+    /* Font Family */
+    --main-font: 'AldotheApache', sans-serif;
+}
+
+@font-face {
+  font-family: 'AldotheApache ';
+  src: url('../fonts/AldotheApache.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }

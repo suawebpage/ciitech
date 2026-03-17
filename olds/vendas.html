@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendas - Vision Graphics</title>
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/vendas.css">
+</head>
+<body>
+    <input type="checkbox" id="toggle">
+    <div class="overlay"></div>
+    <div id="product-item-container"></div>
+
+    <header class="header">
+        <nav class="navbar container"></nav>
+    </header>
+
+    <main>
+        <section class="products">
+            <div class="container">
+                <div class="products-header">
+                    <h1 class="section-title">Nossos Produtos e Serviços</h1>
+                    <p>Escolha uma categoria para ver mais detalhes</p>
+                </div>
+
+                <h2 style="margin-bottom: 20px; color: var(--primary-color);">🛍️ Produtos</h2>
+                <div class="products-grid categories-grid"></div>
+
+                <h2 style="margin: 40px 0 20px; color: var(--primary-color);">🔧 Serviços</h2>
+                <div class="services-grid categories-grid"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer"></footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/vendas.js"></script>
+</body>
+</html>

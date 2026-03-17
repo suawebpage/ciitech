@@ -3,41 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vendas - Vision Graphics</title>
+    <title>Vendas - Cii Tech</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/vendas.css">
 </head>
 <body>
-    <input type="checkbox" id="toggle">
-    <div class="overlay"></div>
-    <div id="product-item-container"></div>
 
     <header class="header">
         <nav class="navbar container"></nav>
     </header>
 
-    <main>
-        <section class="products">
-            <div class="container">
-                <div class="products-header">
-                    <h1 class="section-title">Nossos Produtos e Serviços</h1>
-                    <p>Escolha uma categoria para ver mais detalhes</p>
-                </div>
+    <main class="vendas-main">
 
-                <h2 style="margin-bottom: 20px; color: var(--primary-color);">🛍️ Produtos</h2>
-                <div class="products-grid categories-grid"></div>
-
-                <h2 style="margin: 40px 0 20px; color: var(--primary-color);">🔧 Serviços</h2>
-                <div class="services-grid categories-grid"></div>
+        <!-- ── Hero banner da página ── -->
+        <section class="vendas-hero">
+            <div class="vendas-hero-bg"></div>
+            <div class="container vendas-hero-content">
+                <span class="vendas-hero-label">Catálogo completo</span>
+                <h1 class="vendas-hero-title">Produtos &amp; Serviços</h1>
+                <p class="vendas-hero-sub">Gráfica, impressão 3D, design e muito mais</p>
             </div>
         </section>
+
+        <!-- ══════════════════════════════════════════════
+             PRODUTOS
+        ══════════════════════════════════════════════ -->
+        <section class="catalog-section" id="section-produtos">
+            <div class="container">
+                <div class="catalog-section-header">
+                    <span class="catalog-pill">🛍️ Produtos</span>
+                    <h2 class="catalog-section-title">Nossa Gráfica</h2>
+                </div>
+
+                <!-- renderizado dinamicamente: uma .category-row por subcategoria -->
+                <div id="products-catalog"></div>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════════
+             SERVIÇOS
+        ══════════════════════════════════════════════ -->
+        <section class="catalog-section alt" id="section-servicos">
+            <div class="container">
+                <div class="catalog-section-header">
+                    <span class="catalog-pill">🔧 Serviços</span>
+                    <h2 class="catalog-section-title">O que fazemos</h2>
+                </div>
+
+                <div id="services-catalog"></div>
+            </div>
+        </section>
+
     </main>
+
+    <!-- ══════════════════════════════════════════════
+         MODAL DO PRODUTO
+    ══════════════════════════════════════════════ -->
+    <div id="productModal" class="modal" role="dialog" aria-modal="true" aria-label="Detalhes do produto">
+        <div class="modal-backdrop"></div>
+        <div class="modal-box">
+
+            <!-- Carrossel de imagens -->
+            <div class="modal-carousel">
+                <button class="modal-img-btn prev" aria-label="Imagem anterior">&#10094;</button>
+                <div class="modal-img-track-wrapper">
+                    <div class="modal-img-track" id="modalImgTrack"></div>
+                </div>
+                <button class="modal-img-btn next" aria-label="Próxima imagem">&#10095;</button>
+                <div class="modal-img-dots" id="modalImgDots"></div>
+
+                <button class="modal-close" id="modalClose" aria-label="Fechar">&#10005;</button>
+            </div>
+
+            <!-- Info -->
+            <div class="modal-info">
+                <h2 class="modal-title" id="modalTitle"></h2>
+                <p class="modal-desc" id="modalDesc"></p>
+                <div class="modal-footer">
+                    <span class="modal-price" id="modalPrice"></span>
+                    <a id="modalLink" href="#" target="_blank" rel="noopener" class="modal-cta">
+                        Ver / Comprar →
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
     <footer class="footer"></footer>
 
     <script src="js/data.js"></script>
     <script src="js/main.js"></script>
     <script src="js/vendas.js"></script>
+
 </body>
 </html>

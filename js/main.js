@@ -1,4 +1,5 @@
 // Load data and render components
+//main.js
 document.addEventListener('DOMContentLoaded', () => {
     initializeSite();
 });
@@ -30,10 +31,30 @@ function renderNavigation() {
         <div class="menu-toggle">☰</div>
         <ul class="nav-menu">
             ${siteData.nav.links.map(link => `
-                <li><a href="${link.url}" class="nav-link ${link.active ? 'active' : ''}">${link.text}</a></li>
+                <li><a href="${link.url}" class="nav-link">${link.text}</a></li>
             `).join('')}
         </ul>
     `;
+
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const currentHash = window.location.hash;
+
+    document.querySelectorAll('.nav-link').forEach(link => {
+        const href = link.getAttribute('href');
+        const linkPage = href.split('#')[0].split('/').pop();
+        const linkHash = href.includes('#') ? '#' + href.split('#')[1] : '';
+
+        const pageMatch = linkPage === currentPage;
+        const hashMatch = linkHash === currentHash;
+
+        if (linkHash) {
+            link.classList.toggle('active', pageMatch && hashMatch);
+        } else {
+            link.classList.toggle('active', pageMatch && currentHash === '');
+        }
+    });
+
+    // ❌ REMOVIDO: initializeMobileMenu() daqui
 }
 
 // Render Hero Section
