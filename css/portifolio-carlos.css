@@ -1,0 +1,292 @@
+ :root {
+    --azul-marinho: #0a1628;
+    --azul-escuro: #1a2942;
+    --dourado: #d4af37;
+    --dourado-claro: #f4d976;
+
+    --primary-color: var(--azul-marinho);
+    --secondary-color: var(--dourado);
+    --accent-color: #3498db;
+    --dark-bg: #111111;
+    --light-bg: #f8f9fa;
+    --text-dark: #333;
+    --text-light: #fff;
+    --text-gray: #666;
+    --border-color: #ddd;
+
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    --spacing-xl: 6rem;
+
+    --font-xs: 0.875rem;
+    --font-sm: 1rem;
+    --font-md: 1.2rem;
+    --font-lg: 1.5rem;
+    --font-xl: 2rem;
+    --font-xxl: 3rem;
+
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+    --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+
+    --transition: all 0.3s ease;
+    --container-width: 1200px;
+    --main-font: 'DM Sans', sans-serif;
+    --title-font: 'Bebas Neue', serif;
+    --cta-color: #00c853;
+
+    --sidebar-width: 40px;
+    --post-max-width: 720px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--main-font);
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+    overflow-x: hidden;
+}
+
+/* ── Layout principal ── */
+.page-layout {
+    display: flex;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* ── Sidebar esquerda: redes sociais ── */
+.social-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.6rem;
+    /* sem fundo, sem borda — invisível, só os ícones */
+    z-index: 100;
+}
+
+.social-sidebar a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    color: var(--text-light);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.social-sidebar a:hover {
+    background: var(--dourado);
+    border-color: var(--dourado);
+    transform: scale(1.18);
+    box-shadow: 0 0 16px rgba(212,175,55,0.45);
+}
+
+.social-sidebar a iconify-icon {
+    font-size: 1.25rem;
+}
+
+/* ícone PNG dentro dos links sociais */
+.social-sidebar a img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+/* ── Botão voltar para home ── */
+.btn-home {
+    position: fixed;
+    top: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px 6px 10px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 50px;
+    color: var(--text-light);
+    text-decoration: none;
+    font-family: var(--main-font);
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    opacity: 0.75;
+    transition: var(--transition);
+    z-index: 200;
+    white-space: nowrap;
+}
+
+.btn-home:hover {
+    background: rgba(212, 175, 55, 0.15);
+    border-color: var(--dourado);
+    opacity: 1;
+    box-shadow: 0 0 12px rgba(212,175,55,0.25);
+}
+
+/* ── Área central de posts ── */
+.posts-area {
+    flex: 1;
+    margin-left: var(--sidebar-width);
+    margin-right: var(--sidebar-width);
+    display: flex;
+    justify-content: center;
+    padding: 3rem var(--spacing-sm) 4rem;
+}
+
+.post {
+    width: 100%;
+    max-width: var(--post-max-width);
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.portifolio-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.5);
+    display: block;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.portifolio-image:hover {
+    transform: scale(1.012);
+    box-shadow: 0 12px 36px rgba(212,175,55,0.18);
+}
+
+/* ── Sidebar direita: marca d'água 3D ──
+    position:fixed + overflow:visible → elementos podem "vazar"
+    para dentro da área dos posts                              */
+.design-sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    overflow: visible;        /* permite cruzar para dentro */
+    pointer-events: none;
+    z-index: 0;               /* atrás das fotos */
+}
+
+/* Cada ícone/SVG posicionado absolutamente dentro do sidebar,
+    mas pode ter valores negativos em left para cruzar a borda  */
+.deco-item {
+    position: absolute;
+    opacity: 0.10;
+    color: #aaa;
+}
+
+.deco-item svg {
+    display: block;
+}
+
+/* Paleta de pintura */
+.deco-palette {
+    top: 8%;
+    right: -10px;           /* vaza um pouco pra esquerda */
+    animation: gentlePulse 8s ease-in-out infinite;
+}
+
+/* Dados empilhados */
+.deco-dice {
+    top: 28%;
+    right: -30px;
+    animation: slowRotate 35s linear infinite;
+}
+
+/* Régua / Esquadro */
+.deco-ruler {
+    top: 50%;
+    right: -20px;
+    animation: gentlePulse 10s ease-in-out infinite 2s;
+}
+
+/* Pincel */
+.deco-brush {
+    top: 68%;
+    right: -15px;
+    animation: slowRotate 45s linear infinite reverse;
+}
+
+/* Compasso / círculo guia */
+.deco-compass {
+    top: 84%;
+    right: -25px;
+    animation: gentlePulse 7s ease-in-out infinite 1s;
+}
+
+@keyframes slowRotate {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes gentlePulse {
+    0%, 100% { opacity: 0.07; }
+    50%       { opacity: 0.17; }
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+    :root {
+        --sidebar-width: 36px;
+    }
+
+    .posts-area {
+        margin-left: var(--sidebar-width);
+        margin-right: 0;
+        padding: 1.2rem 0.5rem 3rem;
+    }
+
+    /* Ícones bem pequenos, espremidos no canto */
+    .social-sidebar {
+        gap: 0.9rem;
+    }
+
+    .social-sidebar a {
+        width: 26px;
+        height: 26px;
+        border-width: 1px;
+    }
+
+    .social-sidebar a iconify-icon {
+        font-size: 0.95rem;
+    }
+
+    .btn-home {
+        left: calc(var(--sidebar-width) + 8px);
+        transform: none;
+        font-size: 0.72rem;
+        padding: 5px 10px 5px 8px;
+    }
+
+    .social-sidebar a img {
+        width: 15px;
+        height: 15px;
+    }
+
+    /* Elementos de design somem no mobile */
+    .design-sidebar {
+        display: none;
+    }
+}

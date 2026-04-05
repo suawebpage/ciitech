@@ -1,0 +1,114 @@
+    <!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Portifólio</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/style.css">
+        <style>
+            body {
+                font-family: 'DM Sans', sans-serif;
+                background-color: var(--dark-bg);
+                color: var(--text-color);
+            }
+
+            .main-container {
+                
+                margin: 0 auto;
+                padding: 20px;
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .post {
+                padding: 20px;
+                max-width: 800px;
+            }
+
+            .portifolio-image {
+                width: 100%;
+                height: auto;
+                margin-bottom: 20px;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+
+            .social-network {
+                height: 100vh;
+                min-width: 200px;
+            }
+
+            .social-link {
+                color: var(--text-light);
+            }
+
+            .design-elements {
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+            }
+        </style>
+    </head>
+    <body>
+
+        <header class="header">
+            <nav class="navbar container"></nav>
+        </header>
+
+        <main>
+            <div class="main-container">
+                <div class="social-network">
+                    <a href="https://wa.me/5511999999999" target="_blank" class="social-link">
+                        <iconify-icon icon="logos:whatsapp" style="font-size: 2rem;"></iconify-icon>
+                    WhatsApp
+                    </a>
+                    <a href="https://www.linkedin.com/in/carlos-eduardo-oliveira-fernandes-9b8b1a1b3/" target="_blank" class="social-link">
+                        <iconify-icon icon="logos:linkedin" style="font-size: 2rem;"></iconify-icon>
+                        LinkedIn
+                    </a>
+                    <a href="https://www.instagram.com/carlos_eduardo_oliveira_fernandes/" target="_blank" class="social-link">
+                        <iconify-icon icon="logos:instagram" style="font-size: 2rem;"></iconify-icon>
+                        Instagram
+                    </a>
+                    <a href="https://behance.net/carlos_dantas" target="_blank" class="social-link">
+                        <iconify-icon icon="logos:behance" style="font-size: 2rem;"></iconify-icon>
+                        Behance
+                    </a>
+
+                </div>
+
+                <div class="post">     
+                    <img src="images/colaboradores/portifolio-carlos/1.jpeg" alt="Carlos" class="portifolio-image">
+                    <img src="images/colaboradores/portifolio-carlos/2.jpeg" alt="Carlos" class="portifolio-image">
+                    <img src="images/colaboradores/portifolio-carlos/3.jpeg" alt="Carlos" class="portifolio-image">
+                    <img src="images/colaboradores/portifolio-carlos/4.jpeg" alt="Carlos" class="portifolio-image">
+                    <img src="images/colaboradores/portifolio-carlos/5.jpeg" alt="Carlos" class="portifolio-image">
+                    <img src="images/colaboradores/portifolio-carlos/6.jpeg" alt="Carlos" class="portifolio-image">
+                    <img src="images/colaboradores/portifolio-carlos/7.jpeg" alt="Carlos" class="portifolio-image">
+                    <img src="images/colaboradores/portifolio-carlos/8.jpeg" alt="Carlos" class="portifolio-image">
+
+                    <div class="design-elements">
+                        <iconify-icon icon="ph:circles-four" style="font-size: 4rem; color: var(--primary-color); position: absolute; top: 20%; left: 10%; opacity: 0.2;"></iconify-icon>
+                        <iconify-icon icon="ph:circles-four" style="font-size: 4rem; color: var(--primary-color); position: absolute; top: 60%; left: 80%; opacity: 0.2;"></iconify-icon>
+                        <iconify-icon icon="ph:circles-four" style="font-size: 4rem; color: var(--primary-color); position: absolute; top: 40%; left: 50%; opacity: 0.2;"></iconify-icon>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer"></footer>
+
+        <script src="js/data.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/vendas.js"></script>
+
+        <script>
+
+        </script>
+
+    </body>
+    </html>

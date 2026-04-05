@@ -7,7 +7,7 @@ const companyData = {
     srcLogo: "images/logo.jpg",
     phone: "558796640299",
     email: "contato@ciitech.com.br",
-    address: "Av. Principal, 1000 - São Paulo, SP",
+    address: "R. Vicente Ferreira Xavier - Mirandiba, PE, 56980-000",
     cnpj: "12.345.678/0001-99"
 };
 
@@ -40,9 +40,15 @@ const siteData = {
     services: [
         {
             icon: "🖨️",
-            title: "Serviços Gráficos",
-            description: "Impressões de alta qualidade para todos os tipos de materiais gráficos",
-            link: "vendas.html?category=grafica"
+            title: "Impressão & Personalizados",
+            description: "Impressões e produtos personalizados sob medida",
+            link: "vendas.html?category=personalizados"
+        },
+        {
+            icon: "🧱",
+            title: "Impressão 3D",
+            description: "Prototipagem e peças personalizadas em impressão 3D",
+            link: "vendas.html?category=3d"
         },
         {
             icon: "🎨",
@@ -55,24 +61,6 @@ const siteData = {
             title: "Desenvolvimento de Sites",
             description: "Sites responsivos e modernos para sua empresa",
             link: "vendas.html?category=web"
-        },
-        {
-            icon: "🖨️",
-            title: "Impressão 3D",
-            description: "Prototipagem e peças personalizadas em impressão 3D",
-            link: "vendas.html?category=3d"
-        },
-        {
-            icon: "✏️",
-            title: "Design Gráfico",
-            description: "Criação de artes, logos e materiais promocionais",
-            link: "vendas.html?category=design"
-        },
-        {
-            icon: "🏭",
-            title: "Manufatura",
-            description: "Produção de peças e produtos personalizados",
-            link: "vendas.html?category=manufatura"
         }
     ],
 
@@ -93,23 +81,23 @@ const siteData = {
 
     // ── Colaboradores ──────────────────────────────────────────────────────────
     collaborators: [
-        { name: "Carlos Henrique", role: "Designer Gráfico", photo: "images/colaboradores/carlos.jpg",  portfolio: "https://instagram.com/carlos_dantas.ofc" },
-        { name: "Emanoel Ferreira", role: "Desenvolvedor Web", photo: "images/colaboradores/emanoel.jpg", portfolio: "https://instagram.com/emanoelfls"  }
+         { name: "Carlos Henrique", role: "Designer Gráfico", photoPerfil: "images/colaboradores/carlos.jpg", images: [''], redesSociais: { instagram: "https://www.instagram.com/carlos_dantas.ofc/", whatsApp: `https://wa.me/5511999999999` }, portfolio: "portifolio-carlos.html" },
+        { name: "Emanoel Ferreira", role: "Desenvolvedor Web", photoPerfil: "images/colaboradores/emanoel.jpeg", images: [''], redesSociais: { instagram: "https://instagram.com/emanoelfls", whatsApp: `https://wa.me/5511999999999` }, portfolio: "portifolio-emanoel.html" },        
     ],
 
     // ── Parceiros ──────────────────────────────────────────────────────────────
-    partners: ["Sua Web Page", "Outros"],
+    partners: ["<a href='https://suawebpage.com.br' target='_blank' class='partner-link'>Sua Web Page</a>", "Outros"],
 
     // ── Redes sociais ──────────────────────────────────────────────────────────
     socialMedia: [
         { name: "WhatsApp",  icon: "images/icons/whatsapp.svg",  url: `https://wa.me/${companyData.phone}`        },
-        { name: "Instagram", icon: "images/icons/instagram.svg", url: "https://instagram.com/visiongraphics"      }
+        { name: "Instagram", icon: "images/icons/instagram.svg", url: "https://instagram.com/cii.tech"      }
     ],
 
     // ── Rodapé ─────────────────────────────────────────────────────────────────
     footer: {
         rights:    `© ${new Date().getFullYear()} ${companyData.name}. Todos os direitos reservados.`,
-        developed: `Desenvolvido por SuaWebPage.com`
+        developed: `Desenvolvido por <a href="https://suawebpage.com.br" target="_blank" class="footer-link" rel="noopener"> Sua Web Page </a>`
     },
 
     // ══════════════════════════════════════════════════════════════════════════

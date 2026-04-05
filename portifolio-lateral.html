@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portifólio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/portifolio.css">
+    <style>
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .portifolio-image {
+            width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* === LIGHTBOX === */
+        .lightbox-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.92);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-overlay.active {
+            display: flex;
+        }
+
+        .lightbox-img {
+            max-height: 92vh;
+            max-width: 88vw;
+            width: auto;
+            object-fit: contain;
+            border-radius: 4px;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        .lightbox-btn {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            font-size: 22px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+            z-index: 10000;
+        }
+
+        .lightbox-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .lightbox-prev { left: 16px; }
+        .lightbox-next { right: 16px; }
+
+        .lightbox-close {
+            position: fixed;
+            top: 16px;
+            right: 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+            z-index: 10000;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .lightbox-counter {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 13px;
+            font-family: 'DM Sans', sans-serif;
+            letter-spacing: 1px;
+            z-index: 10000;
+        }
+
+        .portifolio-image {
+            cursor: zoom-in;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <nav class="navbar container"></nav>
+    </header>
+
+    <main class="container">
+        <img src="images/colaboradores/portifolio-carlos/1.jpeg" alt="Carlos" class="portifolio-image">
+        <img src="images/colaboradores/portifolio-carlos/2.jpeg" alt="Carlos" class="portifolio-image">
+        <img src="images/colaboradores/portifolio-carlos/3.jpeg" alt="Carlos" class="portifolio-image">
+        <img src="images/colaboradores/portifolio-carlos/4.jpeg" alt="Carlos" class="portifolio-image">
+        <img src="images/colaboradores/portifolio-carlos/5.jpeg" alt="Carlos" class="portifolio-image">
+        <img src="images/colaboradores/portifolio-carlos/6.jpeg" alt="Carlos" class="portifolio-image">
+        <img src="images/colaboradores/portifolio-carlos/7.jpeg" alt="Carlos" class="portifolio-image">
+        <img src="images/colaboradores/portifolio-carlos/8.jpeg" alt="Carlos" class="portifolio-image">
+    </main>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox-overlay" id="lightbox">
+        <button class="lightbox-close" id="lb-close">&#x2715;</button>
+        <button class="lightbox-btn lightbox-prev" id="lb-prev">&#8249;</button>
+        <img src="" alt="" class="lightbox-img" id="lb-img">
+        <button class="lightbox-btn lightbox-next" id="lb-next">&#8250;</button>
+        <span class="lightbox-counter" id="lb-counter"></span>
+    </div>
+
+    <footer class="footer"></footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/vendas.js"></script>
+
+    <script>
+        const images = Array.from(document.querySelectorAll('.portifolio-image'));
+        const overlay = document.getElementById('lightbox');
+        const lbImg   = document.getElementById('lb-img');
+        const counter = document.getElementById('lb-counter');
+        let current   = 0;
+
+        function openLightbox(index) {
+            current = index;
+            lbImg.src = images[current].src;
+            lbImg.alt = images[current].alt;
+            counter.textContent = (current + 1) + ' / ' + images.length;
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function navigate(dir) {
+            current = (current + dir + images.length) % images.length;
+            lbImg.src = images[current].src;
+            lbImg.alt = images[current].alt;
+            counter.textContent = (current + 1) + ' / ' + images.length;
+        }
+
+        images.forEach((img, i) => img.addEventListener('click', () => openLightbox(i)));
+
+        document.getElementById('lb-close').addEventListener('click', closeLightbox);
+        document.getElementById('lb-prev').addEventListener('click', () => navigate(-1));
+        document.getElementById('lb-next').addEventListener('click', () => navigate(1));
+
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) closeLightbox();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (!overlay.classList.contains('active')) return;
+            if (e.key === 'ArrowLeft')  navigate(-1);
+            if (e.key === 'ArrowRight') navigate(1);
+            if (e.key === 'Escape')     closeLightbox();
+        });
+
+        // Suporte a swipe no celular
+        let touchStartX = 0;
+        overlay.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; });
+        overlay.addEventListener('touchend',   (e) => {
+            const diff = touchStartX - e.changedTouches[0].clientX;
+            if (Math.abs(diff) > 50) navigate(diff > 0 ? 1 : -1);
+        });
+    </script>
+
+</body>
+</html>

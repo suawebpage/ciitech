@@ -8,7 +8,7 @@
     --primary-color: var(--azul-marinho);
     --secondary-color: var(--dourado);
     --accent-color: #3498db;
-    --dark-bg: #1a1a1a;
+    --dark-bg: #111111;
     --light-bg: #f8f9fa;
     --text-dark: #333;
     --text-light: #fff;
@@ -43,6 +43,9 @@
 
     /* Font Family */
     --main-font: 'AldotheApache', sans-serif;
+    --title-font: 'AmericanCaptain', serif;
+
+    --cta-color: #00c853;
 }
 
 @font-face {
@@ -50,4 +53,12 @@
   src: url('../fonts/AldotheApache.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
+}
+
+@font-face {
+  font-family: 'AmericanCaptain';
+  src: url('../fonts/AmericanCaptain.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  
 }

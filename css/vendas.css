@@ -46,7 +46,7 @@
 
 .vendas-hero-label {
     display: inline-block;
-    font-family: 'DM Sans', sans-serif;
+    font-family:  var(--main-font);
     font-size: .75rem;
     letter-spacing: .18em;
     text-transform: uppercase;
@@ -58,7 +58,7 @@
 }
 
 .vendas-hero-title {
-    font-family: var(--main-font);
+    font-family: var(--title-font);
     font-size: clamp(2.8rem, 8vw, 5.5rem);
     color: #fff;
     letter-spacing: .04em;
@@ -67,7 +67,7 @@
 }
 
 .vendas-hero-sub {
-    font-family: 'DM Sans', sans-serif;
+    font-family:  var(--main-font);
     font-size: 1rem;
     color: rgba(255,255,255,.65);
     font-weight: 300;
@@ -92,7 +92,7 @@
 }
 
 .filter-banner-text {
-    font-family: 'DM Sans', sans-serif;
+    font-family:  var(--main-font);
     font-size: .9rem;
     color: rgba(255,255,255,.85);
     display: flex;
@@ -110,7 +110,7 @@
 }
 
 .filter-banner-clear {
-    font-family: 'DM Sans', sans-serif;
+    font-family:  var(--main-font);
     font-size: .82rem;
     font-weight: 700;
     letter-spacing: .06em;
@@ -150,7 +150,7 @@
 }
 
 .catalog-pill {
-    font-family: 'DM Sans', sans-serif;
+    font-family:  var(--main-font);
     font-size: .78rem;
     font-weight: 600;
     letter-spacing: .1em;
@@ -176,7 +176,7 @@
 }
 
 .category-row-label {
-    font-family: 'DM Sans', sans-serif;
+    font-family:  var(--main-font);
     font-size: 1rem;
     font-weight: 600;
     color: var(--text-gray);
@@ -283,7 +283,7 @@
     font-size: .7rem;
     padding: .2rem .5rem;
     border-radius: 999px;
-    font-family: 'DM Sans', sans-serif;
+    font-family:  var(--main-font);
 }
 
 .prod-card-body {
@@ -291,7 +291,7 @@
 }
 
 .prod-card-title {
-    font-family: 'DM Sans', sans-serif;
+    font-family:  var(--main-font);
     font-size: .9rem;
     font-weight: 600;
     color: var(--text-dark);
@@ -302,7 +302,7 @@
 }
 
 .prod-card-price {
-    font-family: 'DM Sans', sans-serif;
+    font-family:  var(--main-font);
     font-size: .85rem;
     font-weight: 700;
     color: var(--secondary-color);
@@ -310,7 +310,7 @@
 
 /* ── Mensagem vazia ─────────────────────────────────────────────────────────── */
 .empty-msg {
-    font-family: 'DM Sans', sans-serif;
+    font-family:  var(--main-font);
     color: var(--text-gray);
     font-style: italic;
     padding: 1rem 0;
@@ -478,7 +478,7 @@
 }
 
 .modal-title {
-    font-family: 'DM Sans', sans-serif;
+    font-family:  var(--main-font);
     font-size: 1.35rem;
     font-weight: 700;
     color: var(--primary-color);
@@ -486,7 +486,7 @@
 }
 
 .modal-desc {
-    font-family: 'DM Sans', sans-serif;
+    font-family:  var(--main-font);
     font-size: .95rem;
     color: var(--text-gray);
     line-height: 1.65;
@@ -514,7 +514,7 @@
     padding: .7rem 1.5rem;
     background: var(--secondary-color);
     color: var(--primary-color);
-    font-family: 'DM Sans', sans-serif;
+    font-family:  var(--main-font);
     font-weight: 700;
     font-size: .9rem;
     border-radius: 8px;

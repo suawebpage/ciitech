@@ -1,4 +1,5 @@
-/* HERO SECTION SIMPLIFICADO COM ANIMAÇÃO */
+/* HERO 
+TION SIMPLIFICADO COM ANIMAÇÃO */
 .hero {
     position: relative;
     min-height: 100vh;
@@ -104,6 +105,7 @@
     margin-bottom: 20px;
     color: var(--primary-light);
     animation: slideUp 0.8s ease 0.2s both;
+    font-family: var(--title-font);
 }
 
 .hero-title .highlight {

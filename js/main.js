@@ -63,7 +63,7 @@ function renderHero() {
     if (!hero) return;
 
     hero.innerHTML = `
-        <video class="hero-video" autoplay muted loop playsinline>
+    <video class="hero-video" autoplay muted loop playsinline>
             <source src="${siteData.hero.backgroundVideo}" type="video/mp4">
         </video>
         <div class="hero-content">
@@ -132,7 +132,7 @@ function renderCollaborators() {
     collaboratorsGrid.innerHTML = siteData.collaborators.map(collab => `
         <div class="collaborator-card">
             <a href="${collab.portfolio}" target="_blank">
-                <img src="${collab.photo}" alt="${collab.name}" class="collaborator-image">
+                <img src="${collab.photoPerfil}" alt="${collab.name}" class="collaborator-image">
             </a>
             <h3 class="collaborator-name">${collab.name}</h3>
             <p class="collaborator-role">${collab.role}</p>
